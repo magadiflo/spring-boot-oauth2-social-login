@@ -86,3 +86,57 @@ https://console.cloud.google.com
 client-id: 276875837992-noc1iv7dbbpf0htiuaib34tkk8u5a5ko.apps.googleusercontent.com
 Client-secret: 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
 ````
+
+## Creando nuestro endpoint seguro
+
+Si recordamos, nuestro proyecto de Spring Boot tiene las siguientes dependencias:
+
+````xml
+
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-oauth2-client</artifactId>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+````
+
+Ahora crearemos un endpoint que estará **automáticamente asegurada** al haber agregado la dependencia de
+**spring-boot-starter-oauth2-client** ya que este incluye parte de las dependencias de Spring Security.
+
+````java
+
+@RestController
+@RequestMapping(path = "/api/v1/demo")
+public class DemoController {
+    @GetMapping
+    public ResponseEntity<String> hello() {
+        return ResponseEntity.ok("Hello from secured endpoint!");
+    }
+}
+````
+
+Al ejecutar el proyecto, veremos en consola una contraseña random:
+
+````
+Using generated security password: 6359432d-3b30-40ca-a21b-c724a3a9ef90
+````
+
+Accedemos a la url de nuestro proyecto e ingresamos las credenciales: **user** y el pass generado aleatoriamente. Este
+flujo es similar a cuando agregábamos **Spring Security** a nuestro proyecto, automáticamente los aseguraba.
+
