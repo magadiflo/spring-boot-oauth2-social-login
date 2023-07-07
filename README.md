@@ -197,3 +197,17 @@ Solo basta con agregar las dos configuraciones anteriores para que ya tengamos c
 ahora si ejecutamos el proyecto **ya no veremos el password generado aleatoriamente**, eso significa que hasta ahora
 va todo bien.
 
+## Probando el flujo de Authorization
+
+- Lo primero que haré será cerrar sesión de mi cuenta de GitHub para ver cuál sería su flujo.
+- Accedemos a nuestro endpoint seguro ``http://localhost:8080/api/v1/demo``
+- Veremos que nos redirecciona automáticamente a la siguiente pantalla para autenticarnos con nuestras credenciales de
+  GitHub
+  ![sign-in-to-github.png](./assets/sign-in-to-github.png)
+
+- Luego nos muestra esta otra pantalla para autorizar al cliente **Spring-Boot-3-Social-Login** se pueda acceder con la
+  cuenta de magadiflo.
+  ![authorize-github.png](./assets/authorize-github.png)
+
+- Finalmente dando click en **Authorize magadiflo** veremos que somos redireccionados a nuestro endpoint solicitado
+  inicialmente.
