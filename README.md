@@ -43,3 +43,46 @@ Como observamos nos generará:
 > Para crear el Client secret debemos darle en **Generate a new client secret**
 > Al finalizar este tutorial, eliminaré el **client secret**
 
+## Generando credenciales para el cliente en Google
+
+Con nuestra **cuenta de google iniciada**, acceder a la siguiente url:
+
+````
+https://console.cloud.google.com
+````
+
+- En el dashboard mostrado click en el select: Google-Sign-In...
+- Se abrirá un modal con todos los proyectos que tenga.
+- Clic en Proyecto Nuevo, nos llevará al siguiente formulario donde **solo colocamos el nombre del proyecto**:
+  SpringBoot 3 Social Login.
+- Luego de haber creado el proyecto, clicamos en el select: Google-Sign-In... nos abrirá el modal del principio y
+  seleccionamos nuestro proyecto recién creado.
+  ![creation-project-google](./assets/creation-project-google.png)
+
+- Nos mostrará el dashboard de nuestro proyecto creado, observar que tiene mucha información de la cual, lo único que
+  nos interesa es crear credenciales para nuestro cliente que usará a google como servidor de autorización. Entonces
+  ahora, **damos clic en API APIs y servicios**:
+  ![dashboard-del-proyecto-creado](./assets/dashboard-del-proyecto-creado.png)
+
+- Damos clic en **Credenciales**:
+  ![credenciales-google.png](./assets/credenciales-google.png)
+
+- Crear credenciales para **ID de cliente de OAuth**:
+  ![id-de-cliente-de-oauth.png](./assets/id-de-cliente-de-oauth.png)
+
+- Luego clic en el botón: **Configurar pantalla de consentimiento**
+  En la siguiente pantalla estará nos mostrará [] Internos y [] Externos, solo damos en el botón **Crear**.
+  Ingresamos los campos básicos: nombre de la aplicación, etc., luego continuamos con la pantalla de Permisos, Usuarios
+  de prueba y Resumen, en dichas pantallas solo di en siguiente o continuar:
+  ![pantalla-de-consentimiento.png](./assets/pantalla-de-consentimiento.png)
+
+- Luego, click en credenciales, y volvemos a dar en **Crear credenciales**, **ID de cliente de OAuth**.
+  ![crear-oauth-client-id.png](./assets/crear-oauth-client-id.png)
+
+- Credenciales del cliente OAuth de google
+  ![credenciales-de-cliente-en-google.png](./assets/credenciales-de-cliente-en-google.png)
+
+````
+client-id: 276875837992-noc1iv7dbbpf0htiuaib34tkk8u5a5ko.apps.googleusercontent.com
+Client-secret: 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
+````
