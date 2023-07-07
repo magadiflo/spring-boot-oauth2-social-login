@@ -166,3 +166,34 @@ public class SecurityConfig {
     }
 }
 ````
+
+## Agregando las configuraciones de OAuth2 GitHub (Implementando el ClientRegistration)
+
+**NOTA**
+
+> Necesitamos establecer en esta sección que GitHub será nuestro servidor de autorización. Para ello, Spring Security
+> define el contrato ClientRegistration. La interfaz ClientRegistration representa al cliente en la arquitectura OAuth2.
+> Entonces para representar el cliente OAuth 2 para Spring Security usamos la implementación del contrato
+> ClientRegistration. Pero también debemos configurarlo para usarlo para la autenticación. Para ello, Spring Security
+> utiliza un objeto de tipo ClientRegistrationRepository quien encuentra un ClientRegistration por su ID de registro.
+>
+> Esta forma de configurar la estoy sacando del libro de
+> [Spring Security In Action 2020](https://github.com/magadiflo/spring-security-in-action-2020/blob/main/12.how_does_oauth-2_work.md),
+> pero esta forma de configurar es de manera programática, en el libro se menciona, además de este, un tercer enfoque,
+> el cual es usar el archivo de propiedades y establecer allí las configuraciones. En este tutorial se hace lo mismo,
+> solo quise dejar esta nota para hacer saber que existen otras formas de configurar.
+
+Con este tercer enfoque no necesitamos especificar en el archivo de configuración ningún detalle sobre
+ClientRegistration y ClientRegistrationRepository porque Spring Boot los crea automáticamente en función del archivo de
+propiedades.
+
+````properties
+# GitHub
+spring.security.oauth2.client.registration.github.client-id=a6a75dbf5b493de1531d
+spring.security.oauth2.client.registration.github.client-secret=2c24932455932162e0ac4dcccfce262c83f4de59
+````
+
+Solo basta con agregar las dos configuraciones anteriores para que ya tengamos configurado nuestro cliente de GitHub,
+ahora si ejecutamos el proyecto **ya no veremos el password generado aleatoriamente**, eso significa que hasta ahora
+va todo bien.
+
