@@ -140,3 +140,29 @@ Using generated security password: 6359432d-3b30-40ca-a21b-c724a3a9ef90
 Accedemos a la url de nuestro proyecto e ingresamos las credenciales: **user** y el pass generado aleatoriamente. Este
 flujo es similar a cuando agregábamos **Spring Security** a nuestro proyecto, automáticamente los aseguraba.
 
+## Configuraciones de seguridad
+
+Establezcamos las configuraciones de seguridad para permitir que nuestra aplicación use el inicio de sesión ya sea con
+GitHub o Google. Empezamos escribiendo una clase de configuración, creamos el método SecurityFilterChain que recibe
+como parámetro el HttpSecurity http. Y ahora una diferencia: en lugar de usar httpBasic() o formLogin(), llamamos a un
+método diferente llamado **oauth2Login(Customizer.withDefaults())**. Pero sabes lo que está pasando. Al igual que con
+httpBasic() o formLogin(), oauth2Login() simplemente agrega un nuevo filtro de autenticación a la cadena de filtros Este
+código se presenta en el siguiente listado:
+
+````java
+
+@EnableWebSecurity(debug = true)
+@Configuration
+public class SecurityConfig {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> {
+                    authorize.anyRequest().authenticated();
+                })
+                .oauth2Login(Customizer.withDefaults());
+
+        return http.build();
+    }
+}
+````
