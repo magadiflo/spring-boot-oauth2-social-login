@@ -211,3 +211,22 @@ va todo bien.
 
 - Finalmente dando click en **Authorize magadiflo** veremos que somos redireccionados a nuestro endpoint solicitado
   inicialmente.
+
+## Agregar Google como proveedor de OAuth 2.0
+
+Al igual que hicimos con GitHub, configuraremos esta vez para Google:
+
+````properties
+# Google
+spring.security.oauth2.client.registration.google.client-id=276875837992-noc1iv7dbbpf0htiuaib34tkk8u5a5ko.apps.googleusercontent.com
+spring.security.oauth2.client.registration.google.client-secret=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
+````
+
+- Ahora, reiniciemos la aplicación y accedamos a nuestro endpoint asegurado: ``http://localhost:8080/api/v1/demo``.
+- Como ahora tenemos dos proveedores de Servidor de Authorization, al ingresar al endpoint asegurado, nos mostrará
+  la página ``http://localhost:8080/login`` con el enlace hacia los dos servidores de authorization:
+  ![login-with-oauth2.0.png](./assets/login-with-oauth2.0.png)
+
+- Ahora, al dar click en **Google**, nos redigire al formulario para iniciar sesión:
+  ![login-with-google.png](./assets/login-with-google.png)
+- Luego de ingresar las credenciales y dar en **Siguiente** automáticamente nos redirige a nuestro endpoint asegurado.
