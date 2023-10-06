@@ -1,8 +1,9 @@
 # [OAuth2 & Spring boot 3 & Social login | never been easier](https://www.youtube.com/watch?v=2WNjmT2z7c4&t=2244s)
 
-Youtube: Tutorial tomado del canal de **Bouali Ali**.  
+Youtube: Tutorial tomado del canal de **Bouali Ali**.
 
-Referencia: [**Spring Security In Action 2020**](https://github.com/magadiflo/spring-security-in-action-2020/blob/main/12.how_does_oauth-2_work.md)
+Referencia: [**Spring Security In Action 2020
+**](https://github.com/magadiflo/spring-security-in-action-2020/blob/main/12.how_does_oauth-2_work.md)
 
 ---
 
@@ -73,7 +74,8 @@ https://console.cloud.google.com
   ![id-de-cliente-de-oauth.png](./assets/id-de-cliente-de-oauth.png)
 
 - Luego clic en el botón: **Configurar pantalla de consentimiento**
-  En la siguiente pantalla estará nos mostrará [] Internos y [] Externos, solo damos en el botón **Crear**.
+  En la siguiente pantalla nos mostrará dos radio button (están sin seleccionar los dos) [...] Internos y [...]
+  Externos, solo damos en el botón **Crear**.
   Ingresamos los campos básicos: nombre de la aplicación, etc., luego continuamos con la pantalla de Permisos, Usuarios
   de prueba y Resumen, en dichas pantallas solo di en siguiente o continuar:
   ![pantalla-de-consentimiento.png](./assets/pantalla-de-consentimiento.png)
